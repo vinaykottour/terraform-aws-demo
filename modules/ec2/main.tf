@@ -9,8 +9,7 @@ resource "aws_instance" "demo" {
 
   iam_instance_profile = var.iam_instance_profile
 
-  tags = {
-    Name        = "terraform-demo-ec2"
-    Environment = var.environment
-  }
+  tags = merge(var.tags, {
+    Name = "terraform-demo-ec2"
+  })
 }

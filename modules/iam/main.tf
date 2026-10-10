@@ -3,6 +3,10 @@
 resource "aws_iam_role" "ec2_ssm" {
   name = "terraform-demo-ec2-ssm-role"
 
+  tags = merge(var.tags, {
+    Name = "terraform-demo-ec2-ssm-role"
+  })
+
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [

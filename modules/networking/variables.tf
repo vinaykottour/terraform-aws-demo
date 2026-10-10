@@ -18,3 +18,8 @@ variable "environment" {
   description = "Environment name"
   type        = string
 }
+variable "tags" {
+  description = "Common tags for networking resources"
+  type        = map(string)
+  default     = {}
+}

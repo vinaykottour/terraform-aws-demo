@@ -33,3 +33,8 @@ variable "environment" {
   description = "Environment name"
   type        = string
 }
+variable "tags" {
+  description = "Common tags for EC2 resources"
+  type        = map(string)
+  default     = {}
+}

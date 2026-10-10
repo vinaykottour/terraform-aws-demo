@@ -2,10 +2,9 @@
 resource "aws_vpc" "main" {
   cidr_block = var.vpc_cidr
 
-  tags = {
-    Name        = "terraform-demo-vpc"
-    Environment = var.environment
-  }
+  tags = merge(var.tags, {
+    Name = "terraform-demo-vpc"
+  })
 }
 
 resource "aws_subnet" "public" {
@@ -70,8 +69,7 @@ resource "aws_security_group" "ec2" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = {
-    Name        = "terraform-demo-ec2-sg"
-    Environment = var.environment
-  }
+  tags = merge(var.tags, {
+    Name = "terraform-demo-ec2-sg"
+  })
 }
